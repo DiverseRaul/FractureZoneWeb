@@ -1,0 +1,847 @@
+/* Modern, Dark styling for Fracture Zone */
+:root {
+    --primary-color: #36a3ff; /* Lighter blue for dark mode */
+    --primary-hover: #6bbdff; /* Even lighter blue */
+    --secondary-color: #8b949e; /* Grey from GitHub dark */
+    --light-bg: #161b22; /* Slightly lighter dark bg */
+    --dark-bg: #0d1117; /* GitHub dark background */
+    --text-dark: #c9d1d9; /* Light grey text (Primary text on dark) */
+    --text-light: #0d1117; /* Dark text (for light buttons/elements) */
+    --text-muted: #8b949e; /* Muted grey text */
+    --border-color: #30363d; /* GitHub dark border */
+    --shadow-color: rgba(0, 0, 0, 0.3); /* Darker shadow */
+    --card-bg: #1c2128; /* Slightly lighter bg for cards */
+    --transition: all 0.3s ease-in-out;
+    --font-main: 'Poppins', sans-serif; /* Modern font */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px; /* Adjust for header height */
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--dark-bg); /* Dark overall background */
+    color: var(--text-dark); /* Light primary text */
+    line-height: 1.6;
+    position: relative;
+    overflow-x: hidden;
+    font-size: 16px;
+}
+
+/* Remove noise overlay if not desired for clean look */
+.noise-overlay {
+   display: none;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-main);
+    font-weight: 600; /* Poppins looks good semi-bold */
+    line-height: 1.3;
+    margin-bottom: 1rem;
+    color: var(--text-dark); /* Light text for headings */
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+h2::after { /* Simple underline */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-muted); /* Muted text for paragraphs */
+    font-size: 1rem;
+    font-weight: 400;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* Header */
+header {
+    /* Keep header light for contrast, or make it dark? Let's try dark */
+    background-color: rgba(13, 17, 23, 0.9); /* Dark translucent */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    border-bottom: 1px solid var(--border-color);
+    /* Original light header below if preferred */
+    /* background-color: #ffffff; */
+    /* box-shadow: 0 2px 5px var(--shadow-color); */
+    /* color: var(--text-dark); */
+    /* border-bottom: none; */
+    display: flex;
+    align-items: center;
+    padding: 1rem 0; /* Padding applied to container now */
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+header.scrolled {
+    padding: 0.8rem 0;
+    background-color: rgba(13, 17, 23, 0.98);
+    /* box-shadow: 0 4px 10px var(--shadow-color); */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between logo div and nav */
+}
+
+.logo-container .game-title {
+    margin-bottom: 0; /* Remove margin if tagline is present */
+}
+
+.logo-container .tagline {
+    margin-top: -0.2rem; /* Adjust spacing */
+}
+
+
+/* Inherit color from body or set specifically */
+.game-title {
+    color: var(--text-dark);
+}
+
+.tagline {
+    color: var(--text-muted);
+}
+
+/* Style the placeholder icon if needed */
+.logo-container i.fa-shield-alt {
+    color: var(--primary-color); /* Make sure it uses the theme color */
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav li {
+    margin-left: 2rem;
+}
+
+nav a {
+    font-family: var(--font-main);
+    color: var(--text-muted);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.9rem;
+    position: relative;
+    padding: 0.5rem 0;
+    text-decoration: none;
+}
+
+nav a span {
+    position: relative;
+    padding-bottom: 5px;
+}
+
+nav a span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--text-dark); /* Light text on hover/active */
+}
+
+nav a:hover span::after,
+nav a.active span::after {
+    width: 100%;
+}
+
+/* Mobile nav button */
+.mobile-nav-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    color: var(--text-dark); /* Light icon */
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 85vh; /* Slightly shorter */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Dark overlay */
+    background: linear-gradient(rgba(13, 17, 23, 0.7), rgba(13, 17, 23, 0.9)), url('images/hero-bg.jpg') no-repeat center center/cover;
+    text-align: center;
+    padding-top: 80px; /* Space for header */
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 750px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h2 {
+    font-size: 3.5rem; /* Modern hero title size */
+    font-weight: 700;
+    color: var(--text-dark); /* Light text */
+    border: none;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.15rem;
+    color: var(--text-muted); /* Muted light text */
+    margin-bottom: 2.5rem;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 400;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* Buttons */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px; /* Rounded modern buttons */
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4); /* Darker shadow */
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.cta-button.primary {
+    background-color: var(--primary-color);
+    color: var(--text-light); /* Dark text on light button */
+    border-color: var(--primary-color);
+}
+
+.cta-button.primary:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+}
+
+.cta-button.secondary {
+    /* Keep secondary button styling if needed, or remove if only primary is used now */
+    background-color: transparent;
+    color: var(--primary-color); /* Light text */
+    border-color: var(--primary-color);
+}
+
+.cta-button.secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light); /* Dark text */
+}
+
+.cta-button i {
+    font-size: 1em;
+}
+
+.cta-button.large {
+    padding: 1rem 2.5rem;
+    font-size: 1.05rem;
+}
+
+/* Scroll Indicator - Optional for clean look */
+.scroll-indicator {
+   display: none; /* Hide if too distracting */
+}
+
+/* Sections */
+section {
+    padding: 5rem 0;
+    position: relative;
+    background-color: var(--dark-bg); /* Dark section background */
+}
+
+section:nth-child(even) { /* Alternating background */
+    background-color: var(--light-bg); /* Slightly lighter dark bg for contrast */
+}
+
+/* Features Section (About) */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.feature-item {
+    background-color: var(--card-bg); /* Dark card background */
+    padding: 2rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.feature-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    border-color: var(--primary-color);
+}
+
+/* Remove complex hover effects if desired */
+.feature-item::before {
+    content: none;
+}
+
+.feature-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    display: inline-block;
+    /* Remove gradient if too flashy */
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: initial;
+}
+
+.feature-item h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.25rem;
+    color: var(--text-dark); /* Light text */
+}
+
+.feature-item p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+/* Updates Section (Replaces Weapons) */
+.updates {
+    background-color: var(--light-bg); /* Match alternating bg */
+}
+
+.updates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.update-item {
+    background-color: var(--card-bg); /* Dark card background */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.8rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.update-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.update-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.update-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+}
+
+.update-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 0;
+}
+
+.update-description {
+    font-size: 0.95rem;
+    color: var(--text-dark); /* Light text */
+    flex-grow: 1; /* Pushes link down */
+    margin-bottom: 1rem;
+}
+
+.read-more {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    align-self: flex-start; /* Align link to the left */
+}
+
+.read-more:hover {
+    color: var(--primary-hover);
+    text-decoration: underline;
+}
+
+.read-more i {
+    margin-left: 0.3rem;
+    transition: transform 0.2s ease;
+}
+
+.read-more:hover i {
+    transform: translateX(4px);
+}
+
+/* Play Section */
+.play {
+    text-align: center;
+    background-color: var(--dark-bg); /* Dark section bg */
+}
+
+.play-content p {
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    font-size: 1.1rem;
+    color: var(--text-muted); /* Muted light text */
+}
+
+.platform-logos {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.platform {
+    text-align: center;
+    color: var(--text-muted);
+    transition: var(--transition);
+    padding: 0.5rem;
+}
+
+.platform:hover {
+    color: var(--primary-color);
+    transform: translateY(-5px);
+}
+
+.platform i {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.platform span {
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+footer {
+    background-color: var(--light-bg); /* Slightly lighter dark footer */
+    padding: 5px 0; /* Reduced padding */
+    border-top: 1px solid var(--border-color);
+    margin-top: 0; /* Remove extra space if sections have padding */
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.footer-logo h3 {
+    font-family: var(--font-main);
+    font-size: 1.6rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.footer-logo p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+}
+
+.studio-badge-container { /* Renamed container */
+  display: flex; /* Arrange items side-by-side */
+  gap: 10px; /* Space between the boxes */
+  margin-top: 10px; /* Space above the container */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.studio-badge-item { /* Renamed item, now the box */
+  display: inline-flex; /* Or 'flex' */
+  align-items: center; /* Align icon and text vertically */
+  gap: 5px; /* Space between icon and text */
+
+  /* Box styles */
+  background-color: rgba(54, 163, 255, 0.1); /* Blue tint bg */
+  color: var(--primary-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.footer-links h4, .footer-social h4 {
+    font-family: var(--font-main);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--card-bg); /* Darker icon background */
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    transition: var(--transition);
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light); /* Dark text on hover */
+    border-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* Animation Classes (Keep simple for modern look) */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-delay {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.8s ease-out forwards 0.3s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Remove Glow Effect if not desired */
+.glow {
+    animation: none;
+}
+
+/* Responsive Styles */
+@media (max-width: 992px) {
+    html {
+        scroll-padding-top: 70px;
+    }
+
+    .game-title {
+        font-size: 1.6rem;
+    }
+
+    nav li {
+        margin-left: 1.5rem;
+    }
+
+    nav a {
+        font-size: 0.85rem;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .hero-content h2 {
+        font-size: 3rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    section {
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+
+    .logo-container {
+        flex-grow: 1;
+    }
+
+    nav ul {
+        position: fixed;
+        top: 60px; /* Adjust based on final header height */
+        right: -100%;
+        width: 250px;
+        height: calc(100vh - 60px);
+        background-color: var(--dark-bg); /* Dark mobile menu */
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        transition: right 0.4s ease;
+        z-index: 1000;
+        border-left: 1px solid var(--border-color);
+        padding: 1.5rem 0;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+    }
+
+    nav ul.active {
+        right: 0;
+    }
+
+    nav li {
+        margin: 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 1rem 1.5rem;
+        margin: 0;
+        color: var(--text-dark);
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    nav a span::after {
+        content: none; /* Remove underline effect for mobile */
+    }
+
+    nav a:hover, nav a.active {
+        background-color: var(--primary-color);
+        color: var(--text-light);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .hero {
+        min-height: 70vh;
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        width: 90%;
+        margin: 1.5rem auto 0;
+    }
+
+    .cta-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .features,
+    .updates-grid {
+        grid-template-columns: 1fr; /* Stack items */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .footer-logo,
+    .footer-links,
+    .footer-social {
+        margin-bottom: 1.5rem;
+    }
+
+    .footer-links ul {
+        padding-left: 0; /* Remove padding for centered text */
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-title {
+        font-size: 1.4rem;
+    }
+
+    .tagline {
+        font-size: 0.75rem;
+    }
+
+    nav ul {
+        top: 54px; /* Adjust based on final header height */
+        height: calc(100vh - 54px);
+        width: 220px;
+    }
+
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        padding: 0 1rem;
+    }
+
+    .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.9rem;
+    }
+
+    .cta-button.large {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+}

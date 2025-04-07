@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fracture Zone</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="noise-overlay"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <!-- Placeholder Logo -->
+                <div style="display: flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-shield-alt" style="font-size: 1.8rem; color: var(--primary-color);"></i> <!-- Example icon -->
+                    <div>
+                        <h1 class="game-title">Fracture Zone</h1>
+                        <p class="tagline">By Bimba Studios</p>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link active"><span>Home</span></a></li>
+                    <li><a href="#about" class="nav-link"><span>Features</span></a></li>
+                    <li><a href="#updates" class="nav-link"><span>Updates</span></a></li>
+                    <li><a href="#play" class="nav-link"><span>Play Now</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="particles-container"></div>
+        <div class="hero-content fade-in">
+            <h2>Enter the Fracture Zone</h2>
+            <p>Experience intense, fast-paced combat in a shrinking arena. Outlast your rivals and claim victory!</p>
+            <div class="cta-buttons">
+                <a href="#play" class="cta-button primary large"><i class="fab fa-roblox"></i> Play Now on Roblox</a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll Down</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Game Features</h2>
+            <div class="features">
+                <div class="feature-item">
+                    <i class="fas fa-map"></i>
+                    <h3>Dynamic Map</h3>
+                    <p>Explore a vast, ever-changing battlefield with destructible environments</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Multiplayer</h3>
+                    <p>Battle against other players in intense combat scenarios</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Fast-Paced</h3>
+                    <p>10-minute matches with shrinking safe zones and constant action</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-trophy"></i>
+                    <h3>Ranked Mode</h3>
+                    <p>Climb the competitive ladder and prove your worth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="updates" class="updates">
+        <div class="container">
+            <h2>Latest Updates</h2>
+            <div class="updates-grid">
+                <!-- Update Item 1 -->
+                <div class="update-item">
+                    <div class="update-header">
+                        <span class="update-date">April 5, 2025</span>
+                        <h3 class="update-title">Patch v1.2 Live!</h3>
+                    </div>
+                    <p class="update-description">New map changes, weapon balancing, and performance improvements are now live. Check out the full patch notes!</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- Update Item 2 -->
+                <div class="update-item">
+                    <div class="update-header">
+                        <span class="update-date">March 28, 2025</span>
+                        <h3 class="update-title">Ranked Season 1 Kick-off</h3>
+                    </div>
+                    <p class="update-description">The first official ranked season has begun! Climb the leaderboards and earn exclusive rewards.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <!-- Update Item 3 -->
+                <div class="update-item">
+                    <div class="update-header">
+                        <span class="update-date">March 15, 2025</span>
+                        <h3 class="update-title">New Cosmetic Store Items</h3>
+                    </div>
+                    <p class="update-description">Fresh outfits, weapon skins, and emotes have dropped in the store. Customize your look!</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="play" class="play">
+        <div class="container">
+            <h2>Join the Battle on Roblox</h2>
+            <div class="play-content">
+                <p>Drop into Fracture Zone now, exclusively on Roblox!</p>
+                <a href="https://www.roblox.com/games/YOUR_GAME_ID_HERE" class="cta-button primary large" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-gamepad"></i> Play on Roblox
+                </a>
+                <div class="platform-logos">
+                    <div class="platform">
+                        <i class="fas fa-desktop"></i>
+                        <span>PC</span>
+                    </div>
+                    <div class="platform">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Mobile</span>
+                    </div>
+                    <div class="platform">
+                        <i class="fas fa-tablet-alt"></i>
+                        <span>Tablet</span>
+                    </div>
+                    <div class="platform">
+                        <i class="fab fa-xbox"></i>
+                        <span>Xbox</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>FRACTURE ZONE</h3>
+                    <p> 2025 Bimba Studios</p>
+                    <div class="studio-badge-container">
+                        <div class="studio-badge-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Battle Royale Excellence</span>
+                        </div>
+                        <div class="studio-badge-item">
+                            <i class="fa-solid fa-globe"></i>
+                            <span>v1.0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Features</a></li>
+                        <li><a href="#updates">Updates</a></li>
+                        <li><a href="#play">Play Now</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
